@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;400&family=Roboto&display=swap');
+
+:root {
+    --primary: #ff0a78;
+    --background: #0e141b;
+    --text: #f2f5f7;
+    --text-rgb: 242 245 247;
+    --textGrey: #9ca8b4;
+    --textGrey-rgb: 156 168 180;
+    --dark: #0e0e0e;
+    --light: #182635;
+    --light-rgb: 24 38 53;
+    --accentPink: #e60067;
+    --accentGrey: #2b333b;
+    --accentDark: #ffe100;
+    --accentDark2: #4a67f7;
+    --blueDark: #182635;
+    --blueDark-rgb: 24 38 53;
+    --blueLight: #4a67f7;
+    --tinted: #151f28;
+    --link: #ffe100;
+
+    --xs-fs: 0.75rem;
+    --xs-lh: 1rem;
+    --sm-fs: 0.875rem;
+    --sm-lh: 1.25rem;
+    --base-fs: 1rem;
+    --base-lh: 1.5rem;
+    --lg-fs: 1.25rem;
+    --lg-lh: 1.75rem;
+    --xl-fs: 1.25rem;
+    --xl-lh: 1.75rem;
+    ---2xl-fs: 1.5rem;
+    ---2xl-lh: 2rem;
+    ---3xl-fs: 1.875rem;
+    ---3xl-lh: 2.25rem;
+    ---4xl-fs: 2.25rem;
+    ---4xl-lh: 2.5rem;
+    ---5xl-fs: 3rem;
+    ---5xl-lh: 1;
+    ---6xl-fs: 3.75rem;
+    ---6xl-lh: 1;
+    ---7xl-fs: 4.5rem;
+    ---7xl-lh: 1;
+    ---8xlfs: 6rem;
+    ---8xl-lh: 1;
+    ---9xl-fs: 8rem;
+    ---9xl-lh: 1;
+}
+
+body {        
+    min-height: 100vh;
+
+    color: var(--text);
+    background-color: var(--background);
+
+    user-select: none;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+
+    font-size: var(--base-fs);
+    line-height: var(--base-lh);
+}
+
+* {
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.transition {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+}
+
+.content-area {
+    padding: 2rem;
+    padding-top: 4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

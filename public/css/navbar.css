@@ -1,0 +1,16 @@
+.navbar {
+    top: 0;
+    z-index: 50;
+    width: 100vw;
+    position: fixed;
+    padding: 0.5rem 1rem;
+    
+    backdrop-filter: blur(4px);
+    background-color: rgb(var(--blueDark-rgb) / 0.4);
+    border-bottom: 1px solid var(--blueDark);
+}
+
+.navbar h3 {
+    font-size: var(---2xl-fs);
+    line-height: var(---2xl-fs);
+}

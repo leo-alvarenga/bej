@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Monoton&family=Rubik+Mono+One&family=Share+Tech+Mono&display=swap');
+
+@font-face {
+    font-family: MaskdownOne;
+    src: url("public/fonts/MaskdownOne.otf");
+}
+
+@font-face {
+    font-family: EvilSound;
+    src: url("public/fonts/EvilSound.ttf");
+}
+
+@font-face {
+    font-family: 'Gorecobra';
+    src: url("../fonts/Gorecobra.otf");
+}
+
+hgroup {
+    font-family: 'Major Mono Display', 'monospace';
+}
+
+hgroup h1 {
+    font-size: var(---7xl-fs);
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+hgroup h2 {
+    font-size: var(---5xl-fs);
+    line-height: 1;
+ 
+    margin-bottom: 2rem;
+    color: rgb(var(--text-rgb) / 0.7);
+}
+
+@media (min-width: 768px) {
+    hgroup {
+        width: 70%;
+    }
+}
