@@ -4,8 +4,8 @@ import html from "@elysiajs/html";
 import staticPlugin from "@elysiajs/static";
 
 import { RootController } from "./controllers";
-import { Template } from "./dto";
-import { TemplateService } from "./services";
+import { Template, Translation } from "./dto";
+import { TemplateService, TranslationService } from "./services";
 import { Home } from "./templates";
 
 const PORT = process.env.APP_PORT;
@@ -19,10 +19,15 @@ const templates = new Map<string, Template>([
     ['home', new Template(Home)]
 ]);
 
+const translations = new Map<string, Translation>([
+    
+]);
+
 // impl i18n serv
 // move this code as Server
 const templateService = new TemplateService(templates);
-const rootController = new RootController(templateService, LANG);
+const translationService = new TranslationService(translations, LANG);
+const rootController = new RootController(templateService, translationService, LANG);
 
 const app = new Elysia()
     .use(staticPlugin())
