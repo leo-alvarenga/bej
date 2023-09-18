@@ -3,8 +3,9 @@ import Elysia from "elysia";
 import html from "@elysiajs/html";
 import staticPlugin from "@elysiajs/static";
 
+import { en } from "./config";
 import { RootController } from "./controllers";
-import { Template, Translation } from "./dto";
+import { Template, Translation } from "./repository";
 import { TemplateService, TranslationService } from "./services";
 import { Home } from "./templates";
 
@@ -20,7 +21,8 @@ const templates = new Map<string, Template>([
 ]);
 
 const translations = new Map<string, Translation>([
-    
+    ['en', new Translation(en)],
+    ['pt', new Translation(en)]
 ]);
 
 // move this code as Server
@@ -41,9 +43,7 @@ const app = new Elysia()
             return 'Not found';
         }
 
-        set.status = 500;
-
-        return '';
+        return '💀';
     })
     .get('/', ({ html, query }) => rootController.get('home', query['lang'], html))
     .get('/links', ({ html, query }) => rootController.get('links', query['lang'], html))

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "bun:test";
 import { TranslationService } from ".";
-import { Translation } from "../../dto";
+import { Translation } from "../../repository";
 
 describe('Translation service', () => {
     const testText = 'This is a test';

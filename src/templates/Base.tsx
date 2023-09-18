@@ -4,8 +4,6 @@ export interface BaseProps extends elements.Children {
     lang: string;
 }
 
-const ENV = process.env.ENV ?? 'prd';
-
 export const Base = ({ children, lang }: BaseProps) => `
 <!DOCTYPE html>
 <html lang="en">

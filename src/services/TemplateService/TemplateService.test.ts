@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { ITemplate, PageProps, Template, TemplateFactory } from "../../dto";
+import { ITemplate, PageProps, Template, TemplateFactory } from "../../repository";
 import { TemplateService } from ".";
 
 describe('TemplateService', () => {

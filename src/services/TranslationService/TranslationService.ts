@@ -1,4 +1,4 @@
-import { Translation } from "../../dto";
+import { Translation } from "../../repository";
 
 export interface ITranslationService {
     translate: (key: string) => string;
@@ -17,7 +17,7 @@ export class TranslationService implements ITranslationService {
         this.availableLangs = Array.from(translations.keys());
     }
     
-    translate (key: string) {
+    translate = (key: string) => {
         const t = this.translations.get(this.currentLang);
 
         if (!t) return key;
@@ -25,7 +25,7 @@ export class TranslationService implements ITranslationService {
         return t.get(key);
     }
 
-    setCurrentLang (lang: string) {
+    setCurrentLang = (lang: string) => {
         if (!this.availableLangs.includes(lang)) return;
 
         this.currentLang = lang;

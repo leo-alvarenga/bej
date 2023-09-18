@@ -1,4 +1,4 @@
-import { PageProps } from "../dto";
+import { PageProps } from "../repository";
 import { IController } from "./Controller";
 import { ITemplateService, ITranslationService } from "../services";
 
@@ -13,7 +13,7 @@ export default class RootController implements IController {
         this.translationService = translationService;
     }
 
-    get(which: string, lang: unknown, html: (val: string) => Response) {
+    get = (which: string, lang: unknown, html: (val: string) => Response) => {
         const trueLang = lang ? String(lang) : this.fallbackLang;
 
         this.translationService.setCurrentLang(trueLang);

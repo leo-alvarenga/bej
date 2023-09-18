@@ -1,4 +1,4 @@
-import { TranslationFactory } from ".";
+import { TranslationFactory } from "./Translation";
 
 export interface PageProps {
     lang: string;

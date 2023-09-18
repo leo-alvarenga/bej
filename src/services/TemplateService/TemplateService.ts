@@ -1,4 +1,4 @@
-import { ITemplate, PageProps } from "../../dto";
+import { ITemplate, PageProps } from "../../repository";
 
 export interface ITemplateService {
     get: (which: string, props: PageProps) => string;
