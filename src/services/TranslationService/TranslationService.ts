@@ -1,4 +1,4 @@
-import { Translation } from "../dto";
+import { Translation } from "../../dto";
 
 export interface ITranslationService {
     translate: (key: string) => string;

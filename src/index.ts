@@ -23,7 +23,6 @@ const translations = new Map<string, Translation>([
     
 ]);
 
-// impl i18n serv
 // move this code as Server
 const templateService = new TemplateService(templates);
 const translationService = new TranslationService(translations, LANG);
