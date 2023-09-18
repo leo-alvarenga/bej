@@ -1,4 +1,4 @@
-import { PageProps, Template } from "../dto";
+import { ITemplate, PageProps } from "../../dto";
 
 export interface ITemplateService {
     get: (which: string, props: PageProps) => string;
@@ -9,9 +9,9 @@ export interface ITemplateService {
  * are duplicated
  */
 export class TemplateService implements ITemplateService {
-    private templates!: Map<string, Template>;
+    private templates!: Map<string, ITemplate>;
 
-    constructor(templates: Map<string, Template>) {
+    constructor(templates: Map<string, ITemplate>) {
         this.templates = templates;
     }
 
