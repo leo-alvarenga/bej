@@ -5,7 +5,8 @@ export * from './Base';
 export * from './Home';
 
 const templates = new Map<string, Template>([
-    ['home', new Template(Home)]
+    ['home', new Template(Home)],
+    ['links', new Template(Home)]
 ]);
 
 export default templates;

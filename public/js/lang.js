@@ -1,10 +1,6 @@
 function redirect(lang) {
     let url = location.href.split('?')[0];
 
-    if (url[url.length -1] !== '/') {
-        url += '/';
-    }
-
     window.location.href = url += `?lang=${lang}`;
 }
 

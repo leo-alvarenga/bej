@@ -1,7 +1,7 @@
 {
   "name": "leoalvarenga.dev",
   "module": "src/index.ts",
-  "version": "0.1.12",
+  "version": "0.1.14",
   "type": "module",
   "scripts": {
     "dev": "bun run --watch src/index.ts"

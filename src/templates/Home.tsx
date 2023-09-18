@@ -22,8 +22,8 @@ const TitleArea: TemplateFactory = ({ t }) => (
 
 const ContentArea: TemplateFactory = (props) => (
     <div class="content-area">
-        <link rel="stylesheet" href="public/css/home.css" />
-        <link rel="stylesheet" href="public/css/navbar.css" />
+        <link rel="stylesheet" href="/public/css/home.css" />
+        <link rel="stylesheet" href="/public/css/navbar.css" />
 
         <Navbar {...props} />
         <TitleArea {...props} />
@@ -31,7 +31,7 @@ const ContentArea: TemplateFactory = (props) => (
 );
 
 export const Home: TemplateFactory = (props) => (
-    <Base lang={props.lang}>
+    <Base {...props}>
         <ContentArea {...props} />
     </Base>
 );
