@@ -5,6 +5,7 @@ import { TemplateService } from ".";
 describe('TemplateService', () => {
     const factory: TemplateFactory = ({ lang }) => lang;
     const template = new Template(factory);
+
     const map = new Map<string, ITemplate>([
         ['test', template]
     ]);

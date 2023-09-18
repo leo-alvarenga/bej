@@ -1,4 +1,4 @@
-import { TranslationMap } from "../dto";
+import { TranslationMap } from "../../dto";
 
 export type TranslationFactory = (key: string) => string;
 
