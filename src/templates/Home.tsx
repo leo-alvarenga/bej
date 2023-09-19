@@ -11,14 +11,10 @@ const Navbar: TemplateFactory = ({ t }) => (
 
 const TitleArea: TemplateFactory = ({ t }) => (
     <hgroup id="title-start" class="transition">
-        <h1 class="transition">{t('profile.name')}</h1>
-        <h2>{t('profile.title')}</h2>
+        <h1 class="transition">{t('page.title')}</h1>
+        <h2>{t('page.subtitle')}</h2>
     </hgroup>
 );
-
-// const Expertise = () => (
-
-// );
 
 const ContentArea: TemplateFactory = (props) => (
     <div class="content-area">

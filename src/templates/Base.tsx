@@ -1,9 +1,15 @@
 import * as elements from 'typed-html';
-import { PageProps } from '../repository';
+import { PageProps, TemplateFactory } from '../repository';
 
 export type BaseProps = elements.Children & PageProps;
 
-export const Base = ({ children, t }: BaseProps) => `
+const LangSelector: TemplateFactory = ({ lang }) => (
+    <button id="lang">
+        {lang}
+    </button>
+);
+
+export const Base = ({ children, t, ...props }: BaseProps) => `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +19,9 @@ export const Base = ({ children, t }: BaseProps) => `
 
     <link rel="icon" href="/public/assets/favicon.ico" />
 
-    <meta property="og:title" content="Leonardo Alvarenga's portfolio" />
+    <meta property="og:title" content="A static web page served using ElysiaJS" />
     <meta property="og:author" content="Leonardo Alvarenga" />
-    <meta property="og:description" content="Hi 👋🏻! I am Leo, a FullStack Develop. Click here to visit my portfolio" />
+    <meta property="og:description" content="Hi 👋🏻! This is my web page" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://leoalvarenga.dev" />
@@ -68,7 +74,7 @@ export const Base = ({ children, t }: BaseProps) => `
         }
     </style>
 </head>
-
 ${children}
+${<LangSelector {...{ t, ...props }} />}
 </html>
 `;

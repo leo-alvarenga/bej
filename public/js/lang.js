@@ -1,3 +1,5 @@
+const LANG_EVENT = 'lang'
+
 function redirect(lang) {
     let url = location.href.split('?')[0];
 
@@ -32,4 +34,23 @@ function getLang() {
     redirect(lsLang ?? 'en');
 }
 
-getLang();
+const event = new Event(LANG_EVENT);
+
+const lang = getLang();
+document.addEventListener(LANG_EVENT, () => redirect(lang === 'en' ? 'pt' : 'en'), false);
+
+function triggerLangChange() {
+    document.dispatchEvent(event);
+}
+
+setTimeout(() => {
+    const b = document.getElementById('lang');
+
+    if (!b) {
+        console.error('could not set up language switcher');
+        return;
+    }
+
+    b.onclick = triggerLangChange;
+}, 1000);
+
