@@ -1,13 +1,17 @@
-import { PageProps, Template } from "../dto";
+import { ITemplate, PageProps } from "../../repository";
+
+export interface ITemplateService {
+    get: (which: string, props: PageProps) => string;
+}
 
 /**
  * Manages multiple Template objects by making sure none of them
  * are duplicated
  */
-export default class TemplateService {
-    private templates!: Map<string, Template>;
+export class TemplateService implements ITemplateService {
+    private templates!: Map<string, ITemplate>;
 
-    constructor(templates: Map<string, Template>) {
+    constructor(templates: Map<string, ITemplate>) {
         this.templates = templates;
     }
 

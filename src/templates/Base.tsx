@@ -1,12 +1,15 @@
 import * as elements from 'typed-html';
+import { PageProps, TemplateFactory } from '../repository';
 
-export interface BaseProps extends elements.Children {
-    lang: string;
-}
+export type BaseProps = elements.Children & PageProps;
 
-const ENV = process.env.ENV ?? 'prd';
+const LangSelector: TemplateFactory = ({ lang }) => (
+    <button id="lang">
+        {lang}
+    </button>
+);
 
-export const Base = ({ children, lang }: BaseProps) => `
+export const Base = ({ children, t, ...props }: BaseProps) => `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,30 +17,30 @@ export const Base = ({ children, lang }: BaseProps) => `
     <meta name="view-transition" content="same-origin" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="public/assets/favicon.ico" />
+    <link rel="icon" href="/public/assets/favicon.ico" />
 
-    <meta property="og:title" content="Leonardo Alvarenga's portfolio" />
+    <meta property="og:title" content="A static web page served using ElysiaJS" />
     <meta property="og:author" content="Leonardo Alvarenga" />
-    <meta property="og:description" content="Hi 👋🏻! I am Leo, a FullStack Develop. Click here to visit my portfolio" />
+    <meta property="og:description" content="Hi 👋🏻! This is my web page" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://leoalvarenga.dev" />
 
-    <meta property="og:image" content="public/assets/OpenGraphImage.png" />
+    <meta property="og:image" content="/public/assets/OpenGraphImage.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="627" />
     <meta property="og:image:alt" content="leoalvarenga.dev" />
 
-    <meta property="og:image" content="public/assets/OpenGraphImageSquare.png" />
+    <meta property="og:image" content="/public/assets/OpenGraphImageSquare.png" />
     <meta property="og:image:width" content="400" />
     <meta property="og:image:height" content="400" />
     <meta property="og:image:alt" content="leoalvarenga.dev" />
 
-    <title>${lang === 'en' ? 'Leo' : 'Fu'}</title>
+    <title>${t('meta.title')}</title>
 
-    <link rel="stylesheet" href="public/css/boilerplate.css">
+    <link rel="stylesheet" href="/public/css/boilerplate.css">
     <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
-    <script src="public/js/lang.js" type="text/javascript"></script>
+    <script src="/public/js/lang.js" type="text/javascript"></script>
 
     <style>
         @keyframes fade-in {
@@ -71,7 +74,7 @@ export const Base = ({ children, lang }: BaseProps) => `
         }
     </style>
 </head>
-
 ${children}
+${<LangSelector {...{ t, ...props }} />}
 </html>
 `;

@@ -1,23 +1,28 @@
-import { PageProps } from "../dto";
+import { PageProps } from "../repository";
 import { IController } from "./Controller";
-import { TemplateService } from "../services";
+import { ITemplateService, ITranslationService } from "../services";
 
 export default class RootController implements IController {
     private fallbackLang!: string;
-    private templateManager!: TemplateService;
+    private templateService!: ITemplateService;
+    private translationService!: ITranslationService;
 
-    constructor(templateManager: TemplateService, fallbackLang: string) {
+    constructor(templateService: ITemplateService, translationService: ITranslationService, fallbackLang: string) {
         this.fallbackLang = fallbackLang;
-        this.templateManager = templateManager;
+        this.templateService = templateService;
+        this.translationService = translationService;
     }
 
-    get(which: string, lang: unknown, html: (val: string) => Response) {
+    get = (which: string, lang: unknown, html: (val: string) => Response) => {
         const trueLang = lang ? String(lang) : this.fallbackLang;
+
+        this.translationService.setCurrentLang(trueLang);
 
         const props: PageProps = {
             lang: trueLang,
+            t: this.translationService.translate,
         };
 
-        return html(this.templateManager.get(which, props));
+        return html(this.templateService.get(which, props));
     }
 }

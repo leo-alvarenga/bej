@@ -1,5 +1,8 @@
+import { TranslationFactory } from "../Translation";
+
 export interface PageProps {
     lang: string;
+    t: TranslationFactory;
 }
 
 export type TemplateFactory = (props: PageProps) => string;
